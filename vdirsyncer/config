@@ -1,0 +1,16 @@
+[general]
+status_path = "~/.vdirsyncer/status/"
+
+[pair cals]
+a = "work"
+b = "local"
+collections = null
+
+[storage work]
+type = "http"
+url.fetch = ["command", "pass", "gcal"] 
+
+[storage local]
+type = "filesystem"
+path = "~/.local/share/khal/calendars/private"
+fileext = ".ics"

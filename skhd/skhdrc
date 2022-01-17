@@ -1,0 +1,31 @@
+# open terminal
+shift + cmd - return : kitty --single-instance -d ~
+
+# focus window
+cmd - h : yabai -m window --focus west
+cmd - j : yabai -m window --focus south
+cmd - k : yabai -m window --focus north
+cmd - l : yabai -m window --focus east
+
+# swap window
+ctrl + cmd - h : yabai -m window --swap west
+ctrl + cmd - j : yabai -m window --swap south
+ctrl + cmd - k : yabai -m window --swap north
+ctrl + cmd - l : yabai -m window --swap east
+
+# resize window
+cmd - o : yabai -m window --ratio rel:-0.05
+cmd - i : yabai -m window --ratio rel:0.05
+
+# balance size of windows
+ctrl + cmd - z : yabai -m space --balance
+
+# change layout
+ctrl + cmd - f : yabai -m config layout float
+ctrl + cmd - b : yabai -m config layout bsp
+ctrl + cmd - s : yabai -m config layout stack
+
+# move window to space
+ctrl + cmd - n : yabai -m window --space prev; yabai -m space --focus prev
+ctrl + cmd - m : yabai -m window --space next; yabai -m space --focus next
+
