@@ -1,0 +1,76 @@
+
+set sort_aux = "reverse-date"
+set wait_key = no
+set sort = threads
+
+# load configurations
+source ~/.config/mutt/gpg.rc
+
+source ~/.config/mutt/work.gmail
+
+# For a full list a configuration variables, see
+# https://muttmua.gitlab.io/mutt/manual-dev.html#variables
+
+# SSL hardening
+set ssl_force_tls      = yes
+set ssl_starttls       = yes
+set ssl_use_sslv2      = no
+set ssl_use_sslv3      = no
+set ssl_use_tlsv1      = no
+set ssl_use_tlsv1_1    = no
+set ssl_use_tlsv1_2    = yes
+set ssl_use_tlsv1_3    = yes
+set ssl_verify_dates   = yes
+set ssl_verify_host    = yes
+set ssl_usesystemcerts = yes
+
+# html email
+set mailcap_path = ~/.config/mutt/mailcap
+auto_view text/html  # view html automatically
+alternative_order text/plain text/enriched text/html # save html for last
+
+# Editor
+set editor  = "vim"
+set charset = "utf-8"
+
+# Aliases
+set alias_file    = "~/.config/mutt/aliases"
+set sort_alias    = alias
+set reverse_alias = yes
+source $alias_file
+
+# Navigation
+bind attach,index,pager g       noop
+bind attach,index,pager d       noop
+bind editor             <space> noop
+
+bind pager               j   next-line
+bind pager               k   previous-line
+bind pager               J   next-undeleted
+bind pager               K   previous-undeleted
+bind pager               gg  top
+bind attach,index        gg  first-entry
+bind pager               G   bottom
+bind attach,index        G   last-entry
+bind attach,index,pager  \Cd half-down
+bind attach,index,pager  \Cu half-up
+bind generic,index,pager \Cf imap-fetch-mail
+
+macro attach,compose,index,pager gx "<pipe-message>urlscan<Enter>" "Use urlscan"
+
+macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
+macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
+
+macro index,pager A "<group-reply>"
+
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to starred messages"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro index gt "<change-folder>=[Gmail]/Trash<enter>" "Go to trash"
+
+macro compose ,m "<pipe-message>pandoc -o /tmp/msg.html<enter><attach-file>/tmp/msg.html<enter><edit-type>^Utext/html<enter><tag-entry><previous-entry><tag-entry><group-alternatives>"
+
+macro index gw '<sync-mailbox>><enter-command>source ~/.config/mutt/work.gmail<enter><change-folder>=INBOX<enter>'
+macro index gp '<sync-mailbox>><enter-command>source ~/.config/mutt/personal.gmail<enter><change-folder>=INBOX<enter>'
+
