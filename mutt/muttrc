@@ -6,8 +6,6 @@ set sort = threads
 # load configurations
 source ~/.config/mutt/gpg.rc
 
-source ~/.config/mutt/work.gmail
-
 # For a full list a configuration variables, see
 # https://muttmua.gitlab.io/mutt/manual-dev.html#variables
 
@@ -39,13 +37,16 @@ set sort_alias    = alias
 set reverse_alias = yes
 source $alias_file
 
-# Navigation
+# Unbind
 bind attach,index,pager g       noop
-bind attach,index,pager d       noop
+bind index,pager        d       noop
 bind editor             <space> noop
 
+# Navigation
 bind pager               j   next-line
 bind pager               k   previous-line
+bind index               j   next-entry
+bind index               k   previous-entry
 bind pager               J   next-undeleted
 bind pager               K   previous-undeleted
 bind pager               gg  top
@@ -55,22 +56,22 @@ bind attach,index        G   last-entry
 bind attach,index,pager  \Cd half-down
 bind attach,index,pager  \Cu half-up
 bind generic,index,pager \Cf imap-fetch-mail
+bind index,pager         A   group-reply
 
 macro attach,compose,index,pager gx "<pipe-message>urlscan<Enter>" "Use urlscan"
 
-macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
-macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
-
-macro index,pager A "<group-reply>"
-
-macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
-macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to starred messages"
-macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
-macro index gt "<change-folder>=[Gmail]/Trash<enter>" "Go to trash"
-
 macro compose ,m "<pipe-message>pandoc -o /tmp/msg.html<enter><attach-file>/tmp/msg.html<enter><edit-type>^Utext/html<enter><tag-entry><previous-entry><tag-entry><group-alternatives>"
 
-macro index gw '<sync-mailbox>><enter-command>source ~/.config/mutt/work.gmail<enter><change-folder>=INBOX<enter>'
-macro index gp '<sync-mailbox>><enter-command>source ~/.config/mutt/personal.gmail<enter><change-folder>=INBOX<enter>'
+macro index,pager gw '<sync-mailbox><enter-command>source ~/.config/mutt/work.gmail<enter><change-folder>!<enter><change-folder>=INBOX<enter>'
 
+macro index,pager gp '<sync-mailbox><enter-command>source ~/.config/mutt/personal.gmail<enter><change-folder>!<enter><change-folder>=INBOX<enter>'
+
+macro index,pager da "<save-message>=[Gmail]/All Mail<enter><enter><sync-mailbox><enter>" "Archive"
+macro index,pager dd "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
+
+macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index,pager gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to starred messages"
+macro index,pager gt "<change-folder>=[Gmail]/Trash<enter>" "Go to trash"
+
+source ~/.config/mutt/work.gmail

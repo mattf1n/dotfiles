@@ -1,5 +1,6 @@
 # open terminal
 shift + cmd - return : kitty --single-instance -d ~
+shift + alt - return : open -a qutebrowser
 
 # focus window
 cmd - h : yabai -m window --focus west
@@ -29,3 +30,4 @@ ctrl + cmd - s : yabai -m config layout stack
 ctrl + cmd - n : yabai -m window --space prev; yabai -m space --focus prev
 ctrl + cmd - m : yabai -m window --space next; yabai -m space --focus next
 
+ctrl + cmd - p : zathura --fork >> .skhd.log

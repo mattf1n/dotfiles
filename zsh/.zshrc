@@ -2,22 +2,30 @@ export PATH="/usr/local/sbin:$PATH"
 source $ZDOTDIR/aliases.zsh
 setopt HIST_SAVE_NO_DUPS
 
-zstyle ':completion:*' menu select
+# completions
+zstyle ':completion:*' menu select matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+fpath+=$ZDOTDIR/completions          # directory
+autoload -U compinit; compinit       # load
+bindkey '^[[Z' reverse-menu-complete # select backwards with s-<tab>
 
-fpath+=$ZDOTDIR/completions
-autoload -U compinit; compinit
+bindkey -v                           # vi mode
 
-bindkey -v
-bindkey '^[[Z' reverse-menu-complete
-
+# prompt
+export TYPEWRITTEN_CURSOR="terminal"
+export TYPEWRITTEN_RELATIVE_PATH="adaptive"
+export TYPEWRITTEN_DISABLE_RETURN_CODE="true"
 fpath+=$ZDOTDIR/typewritten
 autoload -U promptinit; promptinit
 prompt typewritten
 
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+# history search
+autoload  -U      up-line-or-beginning-search
+autoload  -U      down-line-or-beginning-search
+zle       -N      up-line-or-beginning-search
+zle       -N      down-line-or-beginning-search
+bindkey   "^[[A"  up-line-or-beginning-search
+bindkey   "^[[B"  down-line-or-beginning-search
 
-eval "$(pyenv init --path)"
+# pyenv
+eval  "$(pyenv  init  --path)"  #  start
+eval  "$(pyenv  init  -)"       #  completions

@@ -1,0 +1,15 @@
+[submodule "zsh/typewritten"]
+	path = zsh/typewritten
+	url = https://github.com/reobin/typewritten.git
+[submodule "todo/addons/todo.txt-many"]
+	path = todo/addons/todo.txt-many
+	url = https://gitlab.com/adaschma/todo.txt-many.git
+[submodule "zathura/Zathura-Pywal"]
+	path = zathura/Zathura-Pywal
+	url = https://github.com/GideonWolfe/Zathura-Pywal.git
+[submodule "todo/addons/stale"]
+	path = todo/addons/stale
+	url = https://github.com/tgdnt/stale.git
+[submodule "todo/addons/all_repri"]
+	path = todo/addons/all_repri
+	url = https://github.com/bapfeld/all_repri.git
