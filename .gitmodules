@@ -13,3 +13,6 @@
 [submodule "todo/addons/all_repri"]
 	path = todo/addons/all_repri
 	url = https://github.com/bapfeld/all_repri.git
+[submodule "vim/.vim/pack/mattf1n/opt/vim-slime"]
+	path = vim/.vim/pack/mattf1n/opt/vim-slime
+	url = https://github.com/jpalardy/vim-slime

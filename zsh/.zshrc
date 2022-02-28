@@ -1,6 +1,7 @@
 export PATH="/usr/local/sbin:$PATH"
 source $ZDOTDIR/aliases.zsh
 setopt HIST_SAVE_NO_DUPS
+unsetopt BEEP
 
 # completions
 zstyle ':completion:*' menu select matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
@@ -29,3 +30,6 @@ bindkey   "^[[B"  down-line-or-beginning-search
 # pyenv
 eval  "$(pyenv  init  --path)"  #  start
 eval  "$(pyenv  init  -)"       #  completions
+
+# Haskell
+[ -f "/Users/matthewf/.ghcup/env" ] && source "/Users/matthewf/.ghcup/env" # ghcup-env
