@@ -16,3 +16,9 @@
 [submodule "vim/.vim/pack/mattf1n/opt/vim-slime"]
 	path = vim/.vim/pack/mattf1n/opt/vim-slime
 	url = https://github.com/jpalardy/vim-slime
+[submodule "vim/.vim/pack/mattf1n/start/catppuccin"]
+	path = vim/.vim/pack/mattf1n/start/catppuccin
+	url = https://github.com/catppuccin/nvim
+[submodule "vim/.vim/pack/mattf1n/opt/vim-cute-python"]
+	path = vim/.vim/pack/mattf1n/opt/vim-cute-python
+	url = https://github.com/sethwoodworth/vim-cute-python
