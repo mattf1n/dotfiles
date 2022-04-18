@@ -28,8 +28,9 @@ bindkey   "^[[A"  up-line-or-beginning-search
 bindkey   "^[[B"  down-line-or-beginning-search
 
 # pyenv
-eval  "$(pyenv  init  --path)"  #  start
-eval  "$(pyenv  init  -)"       #  completions
+eval  "$(pyenv  init  --path)" #  start
+eval  "$(pyenv  init  -)"      #  completions
 
 # Haskell
-[ -f "/Users/matthewf/.ghcup/env" ] && source "/Users/matthewf/.ghcup/env" # ghcup-env
+[ -f "/Users/matthewf/.ghcup/env" ] \
+  && source "/Users/matthewf/.ghcup/env" # ghcup-env

@@ -1,5 +1,5 @@
 # open terminal
-shift + cmd - return : kitty --single-instance -d ~
+shift + cmd - return : alacritty
 shift + alt - return : open -a qutebrowser
 
 # focus window
@@ -19,7 +19,7 @@ cmd - o : yabai -m window --ratio rel:-0.05
 cmd - i : yabai -m window --ratio rel:0.05
 
 # balance size of windows
-ctrl + cmd - z : yabai -m space --balance
+ctrl + cmd - z : brew services restart yabai 
 
 # change layout
 ctrl + cmd - f : yabai -m config layout float

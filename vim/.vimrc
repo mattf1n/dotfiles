@@ -2,6 +2,7 @@
 " - Avoids plugins
 " - Small changes
 
+set signcolumn=no "show errors
 set autoindent                  " automatically indent on new line
 set autoread                    " no more (L)oad confirmation
 set autowrite                   " automatically write before switching buffers
@@ -10,15 +11,16 @@ set belloff=all                 " sweet silence
 set completeopt=menuone,preview " show even one completion match
 set conceallevel=0              " set to one for conceal eg. substitute λ for lambda
 set expandtab                   " tabs become spaces
-set foldmethod=syntax           " automatic folding
+set foldmethod=marker           " automatic folding
 set grepprg=internal            " use vimgrep
 set hidden                      " unsaved buffers can be hidden
 set linebreak                   " lines broken at words, not chars
 set mouse=a                     " usable mouse
 set nocompatible                " not sure exactly what this does. Not vi-compatible
+set nojoinspaces                " Don't put two spaces after punctuation (on reflow)
 set numberwidth=1               " skinny number column
 set shiftwidth=2                " 2-space indent
-set spell spelllang=en_us       " spellcheck
+set spelllang=en_us       " spellcheck
 set splitbelow                  " put new pane below
 set splitright                  " put new pane to the right
 set tabline=%!MyTabLine()       " my own tabline defined below
@@ -40,30 +42,24 @@ nmap j gj
 nmap k gk
 nmap 0 g0
 
-" Fast window switching 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-           
-" Since <C-L> taken above
-nnoremap <leader>l :redraw!<cr>
-
+" Netrw 
+let g:netrw_liststyle = 3 " tree
+let g:netrw_banner = 0 " no banner
+let g:netrw_winsize = 25 " thinner split
 
 """""" Aesthetics """""
 
 set fillchars=vert:\│,eob:\ ,stl:\─,stlnc:\─ " TUI-type separators
-colorscheme wal " good default colorscheme using cterm based on PyWal
 
 " Clean UI
-highlight StatusLine       cterm=bold    ctermfg=0 ctermbg=none
-highlight StatusLineNC     cterm=italic  ctermfg=0 ctermbg=none
-highlight StatusLineTerm   cterm=bold    ctermfg=0 ctermbg=none
-highlight StatusLineTermNC cterm=italic  ctermfg=0 ctermbg=none
-highlight TabLine          cterm=italic  ctermfg=0 ctermbg=none
-highlight TabLineFill      cterm=none
-highlight TabLineSel       cterm=inverse ctermfg=0 ctermbg=none
-highlight VertSplit        cterm=none    ctermfg=0 ctermbg=none
+highlight StatusLine       cterm=bold   ctermfg=8 ctermbg=none
+highlight StatusLineNC     cterm=italic ctermfg=8 ctermbg=none
+highlight StatusLineTerm   cterm=bold   ctermfg=8 ctermbg=none
+highlight StatusLineTermNC cterm=italic ctermfg=8 ctermbg=none
+highlight TabLine          cterm=italic ctermfg=8 ctermbg=none
+highlight TabLineFill      cterm=italic ctermfg=8 ctermbg=none
+highlight TabLineSel       cterm=bold   ctermfg=8 ctermbg=none
+highlight VertSplit        cterm=none   ctermfg=8 ctermbg=none
 
 " Stop underlining things
 highlight SpellBad   cterm=none
@@ -94,9 +90,6 @@ function MyTabLabel(n)
   return bufname(buflist[winnr - 1])
 endfunction
 
-
-
-
 """""""" Plugins """"""""
                              
 " EasyAlign
@@ -112,4 +105,7 @@ nmap <leader>n  <Plug>(coc-diagnostic-next)
 nmap <leader>p  <Plug>(coc-diagnostic-prev)
 
 " Gundo
-let g:gundo_prefer_python3=1
+let g:gundo_prefer_python3 = 1
+
+" LSP
+let g:lsp_document_highlight_enabled = 0

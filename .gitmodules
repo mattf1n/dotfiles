@@ -22,3 +22,24 @@
 [submodule "vim/.vim/pack/mattf1n/opt/vim-cute-python"]
 	path = vim/.vim/pack/mattf1n/opt/vim-cute-python
 	url = https://github.com/sethwoodworth/vim-cute-python
+[submodule "kitty/colors/tokyonight"]
+	path = kitty/colors/tokyonight
+	url = https://github.com/aerosol/tokyonight-kitty
+[submodule "kitty/colors/gruvbox-material-kitty"]
+	path = kitty/colors/gruvbox-material-kitty
+	url = https://github.com/rsaihe/gruvbox-material-kitty
+[submodule "zathura/colors/zathura-gruvbox"]
+	path = zathura/colors/zathura-gruvbox
+	url = https://github.com/eastack/zathura-gruvbox
+[submodule "vim/.vim/pack/mattf1n/start/vim-lsp-settings"]
+	path = vim/.vim/pack/mattf1n/start/vim-lsp-settings
+	url = https://github.com/mattn/vim-lsp-settings
+[submodule "vim/.vim/pack/mattf1n/start/vim-lsp"]
+	path = vim/.vim/pack/mattf1n/start/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp
+[submodule "vim/.vim/pack/mattf1n/start/vim-vsnip"]
+	path = vim/.vim/pack/mattf1n/start/vim-vsnip
+	url = https://github.com/hrsh7th/vim-vsnip
+[submodule "vim/.vim/pack/mattf1n/start/vim-vsnip-integ"]
+	path = vim/.vim/pack/mattf1n/start/vim-vsnip-integ
+	url = https://github.com/hrsh7th/vim-vsnip-integ

@@ -13,7 +13,7 @@ export TODOTXT_DEFAULT_ACTION=ls
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-export OPENAI_API_KEY=$(pass openai)
+# export OPENAI_API_KEY=$(pass openai)
 export OPENAI_ORG_ID="org-w7nKit9OwsqNNO3i9GmXe5uk"
 export MANPATH=/Users/matthewf/.local/share/man:$(echo $(man --path))
 

@@ -60,7 +60,7 @@ bind index,pager         A   group-reply
 
 macro attach,compose,index,pager gx "<pipe-message>urlscan<Enter>" "Use urlscan"
 
-macro compose ,m "<pipe-message>pandoc -o /tmp/msg.html<enter><attach-file>/tmp/msg.html<enter><edit-type>^Utext/html<enter><tag-entry><previous-entry><tag-entry><group-alternatives>"
+macro compose ,m "<pipe-message>pandoc -f gfm -o /tmp/msg.html<enter><attach-file>/tmp/msg.html<enter><edit-type>^Utext/html<enter><tag-entry><previous-entry><tag-entry><group-alternatives>"
 
 macro index,pager gw '<sync-mailbox><enter-command>source ~/.config/mutt/work.gmail<enter><change-folder>!<enter><change-folder>=INBOX<enter>'
 
